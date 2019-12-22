@@ -671,6 +671,9 @@ endm
 
 *plant remove
 rscr
+enum 1 1 10853
+	kill targ
+next
 enum 2 5 5000
 	kill targ
 next
