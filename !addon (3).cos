@@ -513,33 +513,26 @@ delg "mapeditortmp_54"
 setv va00 0
 
 ** Centre of hub
-new: simp 1 1 151 "blnk" 1 va00 8000
+new: simp 1 1 10853 "blnk" 1 va00 8000
 attr 16
 clac 0
+emit 2 0.6
 mvto 9267 2239
 
 ** Containment chamber
-new: simp 1 1 151 "blnk" 1 va00 8000
+new: simp 1 1 10853 "blnk" 1 va00 8000
 attr 16
 clac 0
+emit 2 0.6
 mvto 9772 2214
 
 
 ** Middle of lower floor (not counting containment chamber)
-new: simp 1 1 151 "blnk" 1 va00 8000
+new: simp 1 1 10853 "blnk" 1 va00 8000
 attr 16
 clac 0
+emit 2 0.6
 mvto 10380 2222
-
-
-** Heat Emitter Script
-scrp 1 1 151 1000
-	emit 2 _p1_
-endm
-
-enum 1 1 151
-	mesg wrt+ targ 1000 .95 0 0
-next
 
 *sharmplant install
 inst
