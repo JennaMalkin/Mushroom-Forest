@@ -1,0 +1,692 @@
+**CAOS2PRAY
+*# Pray-File "mushroomforest.agents"
+*# DS-Name "Mushroom Forest"
+*# attach violet-laccaria-478055sml.bmp
+*# desc = "A peaceful forest."
+*# Agent Animation File = "blnk.c16"
+*# Agent Animation String = "0"
+*# Agent Sprite First Image = 0
+*# Agent Animation Gallery = "blnk"
+
+*map size check
+doif mapw < 50000 or maph < 50000
+	mapd 50000 50000
+endi
+
+* Addon file: deletes existing metarooms at the same place, same background name
+*setv va00 gmap 9054 1383
+*doif va00 <> -1
+* check it is made from the same background
+*	doif bkds va00 <> "violet-laccaria-478055sml"
+*		outs "background"
+*		stop
+*	endi
+* Delete any map editor alerters still left over
+*	enum 1 1 229
+*		kill targ
+*	next
+* Check for any agents in the metaroom
+*	enum 0 0 0
+*		setv va32 attr
+*		andv va32 32
+*		doif va32 ne 32
+*			doif targ ne pntr
+*				doif gmap posx posy = va00 and carr = null
+*					cmrt 0
+*					seta va33 targ
+*					new: comp 1 1 229 "blank" 1 0 9000
+*					attr 32
+*					frel va33
+*					pat: fixd 1 "blank" 0 0 0 0 "whiteontransparentchars"
+*					flto 0 30
+*					part 1
+*					ptxt "Map editor can't change this meta room; I'm still in it"
+*					outs "agent"
+*					stop
+*				endi
+*			endi
+*		endi
+*	next
+* delete all the rooms in the meta room
+*	sets va01 erid va00
+
+*	doif strl va01 > 0
+*		setv va03 1
+*		sets va98 ""
+*		loop
+*			setv va99 char va01 va03
+*			doif va99 = ' '
+*				doif va98 <> ""
+*					delr stoi va98
+*					sets va98 ""
+*				endi
+*			else
+*				sets va50 " "
+*				char va50 1 va99
+*				adds va98 va50
+*			endi
+*			addv va03 1
+*		untl va03 > strl va01
+*		doif va98 <> ""
+*			delr stoi va98
+*			sets va98 ""
+*		endi
+*	endi
+
+* delete the metaroom itself
+*	delm va00
+
+*endi
+
+*install room, using temporary GAME variables
+setv game "mapeditortmp" addm 9054 1383 1552 1036 "violet-laccaria-478055sml"
+mmsc 9830 1901 ""
+setv va00 addr game "mapeditortmp" 9054 9206 2181 2181 2281 2279
+rtyp va00 0
+rmsc 9130 2230 ""
+setv game "mapeditortmp_0" va00
+setv va00 addr game "mapeditortmp" 9206 9374 2181 2181 2279 2279
+rtyp va00 0
+rmsc 9290 2230 ""
+setv game "mapeditortmp_1" va00
+setv va00 addr game "mapeditortmp" 9374 9535 2181 2178 2279 2278
+rtyp va00 0
+rmsc 9454 2229 ""
+setv game "mapeditortmp_2" va00
+setv va00 addr game "mapeditortmp" 9535 9727 2178 2176 2278 2281
+rtyp va00 0
+rmsc 9631 2229 ""
+setv game "mapeditortmp_3" va00
+setv va00 addr game "mapeditortmp" 9727 9873 2176 2174 2281 2285
+rtyp va00 0
+rmsc 9800 2230 ""
+setv game "mapeditortmp_4" va00
+setv va00 addr game "mapeditortmp" 9873 10004 2174 2170 2285 2283
+rtyp va00 0
+rmsc 9938 2228 ""
+setv game "mapeditortmp_5" va00
+setv va00 addr game "mapeditortmp" 10004 10171 2170 2169 2283 2283
+rtyp va00 0
+rmsc 10087 2226 ""
+setv game "mapeditortmp_6" va00
+setv va00 addr game "mapeditortmp" 10171 10342 2169 2167 2283 2285
+rtyp va00 0
+rmsc 10256 2227 ""
+setv game "mapeditortmp_7" va00
+setv va00 addr game "mapeditortmp" 10342 10483 2167 2167 2285 2282
+rtyp va00 0
+rmsc 10412 2224 ""
+setv game "mapeditortmp_8" va00
+setv va00 addr game "mapeditortmp" 10483 10605 2167 2169 2282 2281
+rtyp va00 0
+rmsc 10544 2224 ""
+setv game "mapeditortmp_9" va00
+setv va00 addr game "mapeditortmp" 10368 10605 2004 2010 2167 2169
+rtyp va00 0
+rmsc 10486 2086 ""
+setv game "mapeditortmp_10" va00
+setv va00 addr game "mapeditortmp" 10254 10368 2003 2004 2168 2167
+rtyp va00 0
+rmsc 10311 2085 ""
+setv game "mapeditortmp_11" va00
+setv va00 addr game "mapeditortmp" 10108 10254 2004 2003 2169 2168
+rtyp va00 0
+rmsc 10181 2086 ""
+setv game "mapeditortmp_12" va00
+setv va00 addr game "mapeditortmp" 9957 10108 2001 2004 2171 2169
+rtyp va00 0
+rmsc 10032 2085 ""
+setv game "mapeditortmp_13" va00
+setv va00 addr game "mapeditortmp" 9794 9957 2001 2001 2175 2171
+rtyp va00 0
+rmsc 9875 2086 ""
+setv game "mapeditortmp_14" va00
+setv va00 addr game "mapeditortmp" 9638 9794 2002 2001 2177 2175
+rtyp va00 0
+rmsc 9716 2088 ""
+setv game "mapeditortmp_15" va00
+setv va00 addr game "mapeditortmp" 9530 9638 2001 2002 2178 2177
+rtyp va00 0
+rmsc 9584 2089 ""
+setv game "mapeditortmp_16" va00
+setv va00 addr game "mapeditortmp" 9357 9530 2004 2001 2181 2178
+rtyp va00 0
+rmsc 9443 2091 ""
+setv game "mapeditortmp_17" va00
+setv va00 addr game "mapeditortmp" 9199 9357 2002 2004 2181 2181
+rtyp va00 0
+rmsc 9278 2091 ""
+setv game "mapeditortmp_18" va00
+setv va00 addr game "mapeditortmp" 9054 9199 2002 2002 2181 2181
+rtyp va00 0
+rmsc 9126 2091 ""
+setv game "mapeditortmp_19" va00
+setv va00 addr game "mapeditortmp" 9054 9199 1814 1817 2002 2002
+rtyp va00 0
+rmsc 9126 1908 ""
+setv game "mapeditortmp_20" va00
+setv va00 addr game "mapeditortmp" 9199 9373 1817 1816 2002 2004
+rtyp va00 0
+rmsc 9286 1910 ""
+setv game "mapeditortmp_21" va00
+setv va00 addr game "mapeditortmp" 9373 9555 1816 1815 2004 2001
+rtyp va00 0
+rmsc 9464 1908 ""
+setv game "mapeditortmp_22" va00
+setv va00 addr game "mapeditortmp" 9555 9734 1815 1814 2001 2001
+rtyp va00 0
+rmsc 9644 1908 ""
+setv game "mapeditortmp_23" va00
+setv va00 addr game "mapeditortmp" 9734 9911 1814 1811 2001 2001
+rtyp va00 0
+rmsc 9822 1907 ""
+setv game "mapeditortmp_24" va00
+setv va00 addr game "mapeditortmp" 9911 10095 1811 1807 2001 2004
+rtyp va00 0
+rmsc 10003 1907 ""
+setv game "mapeditortmp_25" va00
+setv va00 addr game "mapeditortmp" 10095 10276 1807 1802 2004 2003
+rtyp va00 0
+rmsc 10185 1905 ""
+setv game "mapeditortmp_26" va00
+setv va00 addr game "mapeditortmp" 10276 10476 1802 1797 2003 2007
+rtyp va00 0
+rmsc 10376 1904 ""
+setv game "mapeditortmp_27" va00
+setv va00 addr game "mapeditortmp" 10476 10605 1797 1796 2007 2010
+rtyp va00 0
+rmsc 10540 1903 ""
+setv game "mapeditortmp_28" va00
+setv va00 addr game "mapeditortmp" 9054 9212 1648 1648 1814 1817
+rtyp va00 0
+rmsc 9133 1732 ""
+setv game "mapeditortmp_29" va00
+setv va00 addr game "mapeditortmp" 9212 9398 1648 1646 1817 1816
+rtyp va00 0
+rmsc 9305 1732 ""
+setv game "mapeditortmp_30" va00
+setv va00 addr game "mapeditortmp" 9398 9599 1646 1640 1816 1815
+rtyp va00 0
+rmsc 9498 1730 ""
+setv game "mapeditortmp_31" va00
+setv va00 addr game "mapeditortmp" 9599 9823 1640 1636 1815 1812
+rtyp va00 0
+rmsc 9711 1726 ""
+setv game "mapeditortmp_32" va00
+setv va00 addr game "mapeditortmp" 9823 9988 1636 1631 1812 1809
+rtyp va00 0
+rmsc 9905 1722 ""
+setv game "mapeditortmp_33" va00
+setv va00 addr game "mapeditortmp" 9988 10110 1631 1631 1809 1807
+rtyp va00 0
+rmsc 10049 1719 ""
+setv game "mapeditortmp_34" va00
+setv va00 addr game "mapeditortmp" 10110 10289 1631 1631 1807 1802
+rtyp va00 0
+rmsc 10199 1716 ""
+setv game "mapeditortmp_35" va00
+setv va00 addr game "mapeditortmp" 10289 10497 1631 1628 1802 1797
+rtyp va00 0
+rmsc 10393 1714 ""
+setv game "mapeditortmp_36" va00
+setv va00 addr game "mapeditortmp" 10497 10605 1628 1627 1797 1796
+rtyp va00 0
+rmsc 10551 1712 ""
+setv game "mapeditortmp_37" va00
+setv va00 addr game "mapeditortmp" 9054 9217 1490 1490 1648 1648
+rtyp va00 0
+rmsc 9135 1569 ""
+setv game "mapeditortmp_38" va00
+setv va00 addr game "mapeditortmp" 9217 9313 1490 1490 1648 1647
+rtyp va00 0
+rmsc 9265 1568 ""
+setv game "mapeditortmp_39" va00
+setv va00 addr game "mapeditortmp" 9398 9589 1492 1494 1646 1640
+rtyp va00 0
+rmsc 9493 1566 ""
+setv game "mapeditortmp_40" va00
+setv va00 addr game "mapeditortmp" 9589 9837 1494 1496 1640 1636
+rtyp va00 0
+rmsc 9713 1565 ""
+setv game "mapeditortmp_41" va00
+setv va00 addr game "mapeditortmp" 9837 9988 1496 1494 1636 1631
+rtyp va00 0
+rmsc 9912 1563 ""
+setv game "mapeditortmp_42" va00
+setv va00 addr game "mapeditortmp" 9988 10122 1494 1494 1631 1631
+rtyp va00 0
+rmsc 10055 1562 ""
+setv game "mapeditortmp_43" va00
+setv va00 addr game "mapeditortmp" 10122 10314 1494 1490 1631 1631
+rtyp va00 0
+rmsc 10218 1562 ""
+setv game "mapeditortmp_44" va00
+setv va00 addr game "mapeditortmp" 10314 10502 1490 1489 1631 1628
+rtyp va00 0
+rmsc 10408 1559 ""
+setv game "mapeditortmp_45" va00
+setv va00 addr game "mapeditortmp" 10502 10605 1489 1488 1628 1627
+rtyp va00 0
+rmsc 10553 1558 ""
+setv game "mapeditortmp_46" va00
+setv va00 addr game "mapeditortmp" 10431 10605 1383 1383 1489 1488
+rtyp va00 0
+rmsc 10518 1435 ""
+setv game "mapeditortmp_47" va00
+setv va00 addr game "mapeditortmp" 10193 10431 1383 1383 1493 1489
+rtyp va00 0
+rmsc 10312 1436 ""
+setv game "mapeditortmp_48" va00
+setv va00 addr game "mapeditortmp" 9944 10193 1383 1383 1495 1493
+rtyp va00 0
+rmsc 10068 1438 ""
+setv game "mapeditortmp_49" va00
+setv va00 addr game "mapeditortmp" 9687 9944 1383 1383 1495 1495
+rtyp va00 0
+rmsc 9815 1439 ""
+setv game "mapeditortmp_50" va00
+setv va00 addr game "mapeditortmp" 9420 9687 1383 1383 1492 1495
+rtyp va00 0
+rmsc 9553 1439 ""
+setv game "mapeditortmp_51" va00
+setv va00 addr game "mapeditortmp" 9313 9398 1490 1492 1647 1646
+rtyp va00 0
+rmsc 9355 1568 ""
+setv game "mapeditortmp_52" va00
+setv va00 addr game "mapeditortmp" 9054 9236 1383 1383 1490 1490
+rtyp va00 0
+rmsc 9145 1436 ""
+setv game "mapeditortmp_53" va00
+setv va00 addr game "mapeditortmp" 9236 9420 1383 1383 1490 1492
+rtyp va00 0
+rmsc 9328 1437 ""
+setv game "mapeditortmp_54" va00
+
+*doors between rooms permeability
+door game "mapeditortmp_0" game "mapeditortmp_1" 100
+door game "mapeditortmp_0" game "mapeditortmp_18" 100
+door game "mapeditortmp_0" game "mapeditortmp_19" 100
+door game "mapeditortmp_1" game "mapeditortmp_2" 100
+door game "mapeditortmp_1" game "mapeditortmp_17" 100
+door game "mapeditortmp_1" game "mapeditortmp_18" 100
+door game "mapeditortmp_2" game "mapeditortmp_3" 100
+door game "mapeditortmp_2" game "mapeditortmp_16" 100
+door game "mapeditortmp_2" game "mapeditortmp_17" 100
+door game "mapeditortmp_3" game "mapeditortmp_4" 100
+
+door game "mapeditortmp_3" game "mapeditortmp_15" 100
+door game "mapeditortmp_3" game "mapeditortmp_16" 100
+door game "mapeditortmp_4" game "mapeditortmp_5" 100
+door game "mapeditortmp_4" game "mapeditortmp_14" 100
+door game "mapeditortmp_4" game "mapeditortmp_15" 100
+door game "mapeditortmp_5" game "mapeditortmp_6" 100
+door game "mapeditortmp_5" game "mapeditortmp_13" 100
+door game "mapeditortmp_5" game "mapeditortmp_14" 100
+door game "mapeditortmp_6" game "mapeditortmp_7" 100
+door game "mapeditortmp_6" game "mapeditortmp_12" 100
+
+door game "mapeditortmp_6" game "mapeditortmp_13" 100
+door game "mapeditortmp_7" game "mapeditortmp_8" 100
+door game "mapeditortmp_7" game "mapeditortmp_11" 100
+door game "mapeditortmp_7" game "mapeditortmp_12" 100
+door game "mapeditortmp_8" game "mapeditortmp_9" 100
+door game "mapeditortmp_8" game "mapeditortmp_10" 100
+door game "mapeditortmp_8" game "mapeditortmp_11" 100
+door game "mapeditortmp_9" game "mapeditortmp_10" 100
+door game "mapeditortmp_10" game "mapeditortmp_11" 100
+door game "mapeditortmp_10" game "mapeditortmp_27" 100
+
+door game "mapeditortmp_10" game "mapeditortmp_28" 100
+door game "mapeditortmp_11" game "mapeditortmp_12" 100
+door game "mapeditortmp_11" game "mapeditortmp_26" 100
+door game "mapeditortmp_11" game "mapeditortmp_27" 100
+door game "mapeditortmp_12" game "mapeditortmp_13" 100
+door game "mapeditortmp_12" game "mapeditortmp_26" 100
+door game "mapeditortmp_13" game "mapeditortmp_14" 100
+door game "mapeditortmp_13" game "mapeditortmp_25" 100
+door game "mapeditortmp_13" game "mapeditortmp_26" 100
+door game "mapeditortmp_14" game "mapeditortmp_15" 100
+
+door game "mapeditortmp_14" game "mapeditortmp_24" 100
+door game "mapeditortmp_14" game "mapeditortmp_25" 100
+door game "mapeditortmp_15" game "mapeditortmp_16" 100
+door game "mapeditortmp_15" game "mapeditortmp_23" 100
+door game "mapeditortmp_15" game "mapeditortmp_24" 100
+door game "mapeditortmp_16" game "mapeditortmp_17" 100
+door game "mapeditortmp_16" game "mapeditortmp_22" 100
+door game "mapeditortmp_16" game "mapeditortmp_23" 100
+door game "mapeditortmp_17" game "mapeditortmp_18" 100
+door game "mapeditortmp_17" game "mapeditortmp_21" 100
+
+door game "mapeditortmp_17" game "mapeditortmp_22" 100
+door game "mapeditortmp_18" game "mapeditortmp_19" 100
+door game "mapeditortmp_18" game "mapeditortmp_21" 100
+door game "mapeditortmp_19" game "mapeditortmp_20" 100
+door game "mapeditortmp_20" game "mapeditortmp_21" 100
+door game "mapeditortmp_20" game "mapeditortmp_29" 100
+door game "mapeditortmp_21" game "mapeditortmp_22" 100
+door game "mapeditortmp_21" game "mapeditortmp_29" 100
+door game "mapeditortmp_21" game "mapeditortmp_30" 100
+door game "mapeditortmp_22" game "mapeditortmp_23" 100
+
+door game "mapeditortmp_22" game "mapeditortmp_30" 100
+door game "mapeditortmp_22" game "mapeditortmp_31" 100
+door game "mapeditortmp_23" game "mapeditortmp_24" 100
+door game "mapeditortmp_23" game "mapeditortmp_31" 100
+door game "mapeditortmp_23" game "mapeditortmp_32" 100
+door game "mapeditortmp_24" game "mapeditortmp_25" 100
+door game "mapeditortmp_24" game "mapeditortmp_32" 100
+door game "mapeditortmp_24" game "mapeditortmp_33" 100
+door game "mapeditortmp_25" game "mapeditortmp_26" 100
+door game "mapeditortmp_25" game "mapeditortmp_33" 100
+
+door game "mapeditortmp_25" game "mapeditortmp_34" 100
+door game "mapeditortmp_26" game "mapeditortmp_27" 100
+door game "mapeditortmp_26" game "mapeditortmp_34" 100
+door game "mapeditortmp_26" game "mapeditortmp_35" 100
+door game "mapeditortmp_27" game "mapeditortmp_28" 100
+door game "mapeditortmp_27" game "mapeditortmp_35" 100
+door game "mapeditortmp_27" game "mapeditortmp_36" 100
+door game "mapeditortmp_28" game "mapeditortmp_36" 100
+door game "mapeditortmp_28" game "mapeditortmp_37" 100
+door game "mapeditortmp_29" game "mapeditortmp_30" 100
+
+door game "mapeditortmp_29" game "mapeditortmp_38" 100
+door game "mapeditortmp_30" game "mapeditortmp_31" 100
+door game "mapeditortmp_30" game "mapeditortmp_38" 100
+door game "mapeditortmp_30" game "mapeditortmp_39" 100
+door game "mapeditortmp_30" game "mapeditortmp_52" 100
+door game "mapeditortmp_31" game "mapeditortmp_32" 100
+door game "mapeditortmp_31" game "mapeditortmp_40" 100
+door game "mapeditortmp_31" game "mapeditortmp_41" 100
+door game "mapeditortmp_32" game "mapeditortmp_33" 100
+door game "mapeditortmp_32" game "mapeditortmp_41" 100
+
+door game "mapeditortmp_33" game "mapeditortmp_34" 100
+door game "mapeditortmp_33" game "mapeditortmp_41" 100
+door game "mapeditortmp_33" game "mapeditortmp_42" 100
+door game "mapeditortmp_34" game "mapeditortmp_35" 100
+door game "mapeditortmp_34" game "mapeditortmp_43" 100
+door game "mapeditortmp_35" game "mapeditortmp_36" 100
+door game "mapeditortmp_35" game "mapeditortmp_43" 100
+door game "mapeditortmp_35" game "mapeditortmp_44" 100
+door game "mapeditortmp_36" game "mapeditortmp_37" 100
+door game "mapeditortmp_36" game "mapeditortmp_44" 100
+
+door game "mapeditortmp_36" game "mapeditortmp_45" 100
+door game "mapeditortmp_37" game "mapeditortmp_45" 100
+door game "mapeditortmp_37" game "mapeditortmp_46" 100
+door game "mapeditortmp_38" game "mapeditortmp_39" 100
+door game "mapeditortmp_38" game "mapeditortmp_53" 100
+door game "mapeditortmp_39" game "mapeditortmp_52" 100
+door game "mapeditortmp_39" game "mapeditortmp_53" 100
+door game "mapeditortmp_39" game "mapeditortmp_54" 100
+door game "mapeditortmp_40" game "mapeditortmp_41" 100
+door game "mapeditortmp_40" game "mapeditortmp_51" 100
+
+door game "mapeditortmp_40" game "mapeditortmp_52" 100
+door game "mapeditortmp_40" game "mapeditortmp_54" 100
+door game "mapeditortmp_41" game "mapeditortmp_42" 100
+door game "mapeditortmp_41" game "mapeditortmp_50" 100
+door game "mapeditortmp_41" game "mapeditortmp_51" 100
+door game "mapeditortmp_42" game "mapeditortmp_43" 100
+door game "mapeditortmp_42" game "mapeditortmp_49" 100
+door game "mapeditortmp_42" game "mapeditortmp_50" 100
+door game "mapeditortmp_43" game "mapeditortmp_44" 100
+door game "mapeditortmp_43" game "mapeditortmp_49" 100
+
+door game "mapeditortmp_44" game "mapeditortmp_45" 100
+door game "mapeditortmp_44" game "mapeditortmp_48" 100
+door game "mapeditortmp_44" game "mapeditortmp_49" 100
+door game "mapeditortmp_45" game "mapeditortmp_46" 100
+door game "mapeditortmp_45" game "mapeditortmp_47" 100
+door game "mapeditortmp_45" game "mapeditortmp_48" 100
+door game "mapeditortmp_46" game "mapeditortmp_47" 100
+door game "mapeditortmp_47" game "mapeditortmp_48" 100
+door game "mapeditortmp_48" game "mapeditortmp_49" 100
+door game "mapeditortmp_49" game "mapeditortmp_50" 100
+
+door game "mapeditortmp_50" game "mapeditortmp_51" 100
+door game "mapeditortmp_51" game "mapeditortmp_54" 100
+door game "mapeditortmp_52" game "mapeditortmp_54" 100
+door game "mapeditortmp_53" game "mapeditortmp_54" 100
+
+*post-installation, removing GAME variables
+delg "mapeditortmp_0"
+delg "mapeditortmp_1"
+delg "mapeditortmp_2"
+delg "mapeditortmp_3"
+delg "mapeditortmp_4"
+delg "mapeditortmp_5"
+delg "mapeditortmp_6"
+delg "mapeditortmp_7"
+delg "mapeditortmp_8"
+delg "mapeditortmp_9"
+delg "mapeditortmp_10"
+delg "mapeditortmp_11"
+delg "mapeditortmp_12"
+delg "mapeditortmp_13"
+delg "mapeditortmp_14"
+delg "mapeditortmp_15"
+delg "mapeditortmp_16"
+delg "mapeditortmp_17"
+delg "mapeditortmp_18"
+delg "mapeditortmp_19"
+delg "mapeditortmp_20"
+delg "mapeditortmp_21"
+delg "mapeditortmp_22"
+delg "mapeditortmp_23"
+delg "mapeditortmp_24"
+delg "mapeditortmp_25"
+delg "mapeditortmp_26"
+delg "mapeditortmp_27"
+delg "mapeditortmp_28"
+delg "mapeditortmp_29"
+delg "mapeditortmp_30"
+delg "mapeditortmp_31"
+delg "mapeditortmp_32"
+delg "mapeditortmp_33"
+delg "mapeditortmp_34"
+delg "mapeditortmp_35"
+delg "mapeditortmp_36"
+delg "mapeditortmp_37"
+delg "mapeditortmp_38"
+delg "mapeditortmp_39"
+delg "mapeditortmp_40"
+delg "mapeditortmp_41"
+delg "mapeditortmp_42"
+delg "mapeditortmp_43"
+delg "mapeditortmp_44"
+delg "mapeditortmp_45"
+delg "mapeditortmp_46"
+delg "mapeditortmp_47"
+delg "mapeditortmp_48"
+delg "mapeditortmp_49"
+delg "mapeditortmp_50"
+delg "mapeditortmp_51"
+delg "mapeditortmp_52"
+delg "mapeditortmp_53"
+delg "mapeditortmp_54"
+
+***set va00 to 1 to make emitters visible
+
+setv va00 0
+
+** Centre of hub
+new: simp 1 1 151 "blnk" 1 va00 8000
+attr 16
+clac 0
+mvto 9267 2239
+
+** Containment chamber
+new: simp 1 1 151 "blnk" 1 va00 8000
+attr 16
+clac 0
+mvto 9772 2214
+
+
+** Middle of lower floor (not counting containment chamber)
+new: simp 1 1 151 "blnk" 1 va00 8000
+attr 16
+clac 0
+mvto 10380 2222
+
+
+** Heat Emitter Script
+scrp 1 1 151 1000
+	emit 2 _p1_
+endm
+
+enum 1 1 151
+	mesg wrt+ targ 1000 .95 0 0
+next
+
+*sharmplant install
+inst
+reps 5
+	new: simp 2 5 5000 "sharmflower" 15 0 140
+	attr 192
+
+	bhvr 1
+	elas 0
+	tick rand 200 1000
+
+	mvsf rand 9100 10500 2132
+repe
+
+inst
+*Make the first door! This one is going to be the leftmost door in the top left part of the norn meso. This door will link to the agent injector.
+*Create a simple object that classifies as a door. For convenience's sake, we will use the image of the existing DS teleporters, which are called "ds portals.c16" in the image folder. I will just be using 1 sprite, the 11th, since that one looks cute. You could totally use your own sprite or even add animations in the push script, just be sure to ajdust the image_count and first_image in the new: simp script. We want the door's plane to be behind the creature, so we'll set it to 550.
+new: simp 2 2 20855 "ds portals" 1 11 550
+*Give the door the correct attribute flags, we'll make them clickable by the pointer, which means a total attribute value of 4.
+attr 4
+*Now give the door the correct behaviour: creatures can activate 1 (push) it, which makes for a total behaviour value of 1.
+bhvr 1
+*Set an object variable to set the door group this door belongs to, which is 0.
+setv ov00 0
+*Move the door to the correct place: this one goes in the upper left part of the norn meso. You can pick your own spot by clicking ctrl-alt-x ingame, then the pointer will show the coordinates it's currently at.
+mvsf 810 8814
+*Get the room id of the xcoord ycoord of the door, then set it in a temporary variable va00
+setv va00 grap posx posy
+*We made our first door! On to the second one, which is the partnering door of the first one. The second one can be found at the workshop, at the bottom left.
+new: simp 2 2 20855 "ds portals" 1 11 550
+attr 4
+bhvr 1
+setv ov00 0
+mvsf 9669 2085
+setv va01 grap posx posy
+*Now, to allow Cellular Automata to travel freely, we'll link these two doors, using the temporary variables va00 and va01.
+link va00 va01 100
+
+*plant push
+scrp 2 5 5000 1
+	targ from
+	stim writ from 81 1
+	stim writ from 82 1
+	stim writ from 83 1
+	stim writ from 84 1
+endm
+
+*plant timer
+scrp 2 5 5000 9
+	doif ov00 eq 0
+		doif pose lt 14
+			setv va00 pose
+			addv va00 1
+			pose va00
+		else
+			addv ov99 1
+		endi
+		doif ov99 eq 50
+			setv ov00 1
+		endi
+	endi
+	doif ov00 eq 1
+		doif pose gt 0
+			setv va00 pose
+			subv va00 1
+			pose va00
+		else
+			setv ov99 0
+			setv ov00 0
+		endi
+	endi
+endm
+
+
+*Door event scripts
+*Create an event script for the doors that activates when you send a Push message to it. Don't forget to close your script block with endm at the end.
+scrp 2 2 20855 1
+*We want this script to be locked, so it can't be interrupted by other norns when someone activated it.
+	lock
+	stim writ from 75 1
+*Hmm, so we got a push message. Let's enum all doors to find your partnering door. Don't forget to close your enumeration block at the end of the enumeration script. Before we can enumerate, we'll have to save the object variable of the door that received the click into a temporary variable.
+*We will save the door group (stored in ov00)
+	setv va00 ov00
+	seta va01 targ
+	enum 2 2 20855
+*You're now inside of the enumeration loop. Make sure that the door you're currently targeting isn't the door being activated.
+		doif targ ne va01
+*Check if this door belongs to the same group as the original door
+			doif ov00 eq va00
+*If yes, WOO, you've found your partnering door! Let's save the coordinates in temporary variables first.
+				setv va02 posx
+				setv va03 posy
+*Now, let's check who actually called the script: was it the pointer and do we need to teleport all touching creatures AND the camera, or was it a creature and do we only have to teleport that creature, and eventually the camera if it's locked to that creature?
+*Let's assume it's the pointer first. If it is the pointer
+				doif from eq pntr
+*Move the center of the camera to the xcoord ycoords of the partnering door
+					cmrp va02 va03 1
+*Target the original door
+					targ ownr
+*For each creature touching the door:
+					etch 4 0 0
+						stim writ targ 95 1
+*Check if the creature can move to the xcoord ycoords of the partnering door. If they can, move them.
+						doif tmvf va02 va03 eq 1
+							mvft va02 va03
+						endi
+*End the creatures enumeration loop and "pointerclick" script.
+					next
+				endi
+*Now let's assume it's not the pointer but a creature. Then just that creature should be moved, but if the camera is locked on that creature, then the camera view should move too. Check if it's a creature:
+				doif crea from eq 1
+*If it's a creature, target it and check if it can be moved to the xcoord ycoord of the partnering door.
+					targ from
+					doif tmvf va02 va03 eq 1
+*If the camera is currently tracking this creature, move the camera.
+						doif trck eq from
+							cmrp va02 va03 1
+						endi
+						stim writ from 95 1
+*Move the creature
+						mvft va02 va03
+*End the block where it checks whether the creature can move, and the creatureclick script.
+					endi
+				endi
+*When you've found the partnering door, stop the script at the end of this block, so it won't run any inneccessary enumeration loops
+				stop
+*End the 'if found partnering door' block, the 'if not me' block and the 'enumerate over all doors' loop.
+			endi
+		endi
+	next
+*Unlock and end the script
+	unlk
+endm
+
+
+
+*plant remove
+rscr
+enum 2 5 5000
+	kill targ
+next
+scrx 2 5 5000 9
+scrx 2 5 5000 1
+
+*Door removal script
+enum 2 2 20855
+	kill targ
+next
+*Remove the push script from the scriptorium
+scrx 2 2 20855 1
