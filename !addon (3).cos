@@ -511,15 +511,15 @@ delg "mapeditortmp_54"
 ***set va00 to 1 to make emitters visible
 
 setv va00 0
-
-** Centre of hub
+***HEAT
+** leftmost
 new: simp 1 1 10853 "blnk" 1 va00 8000
 attr 16
 clac 0
 emit 2 0.6
 mvto 9267 2239
 
-** Containment chamber
+** Central
 new: simp 1 1 10853 "blnk" 1 va00 8000
 attr 16
 clac 0
@@ -527,11 +527,34 @@ emit 2 0.6
 mvto 9772 2214
 
 
-** Middle of lower floor (not counting containment chamber)
+** Rightmost
 new: simp 1 1 10853 "blnk" 1 va00 8000
 attr 16
 clac 0
 emit 2 0.6
+mvto 10380 2222
+
+***LIGHT
+** leftmost
+new: simp 1 1 10853 "blnk" 1 va00 8000
+attr 16
+clac 0
+emit 1 1.0
+mvto 9267 2239
+
+** Central
+new: simp 1 1 10853 "blnk" 1 va00 8000
+attr 16
+clac 0
+emit 1 1.0
+mvto 9772 2214
+
+
+** Rightmost
+new: simp 1 1 10853 "blnk" 1 va00 8000
+attr 16
+clac 0
+emit 1 1.0
 mvto 10380 2222
 
 *sharmplant install
