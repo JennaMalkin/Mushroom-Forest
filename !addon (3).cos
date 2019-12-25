@@ -510,52 +510,52 @@ delg "mapeditortmp_54"
 
 ***set va00 to 1 to make emitters visible
 
-setv va00 0
+setv va00 1
 ***HEAT
 ** leftmost
 new: simp 1 1 10853 "blnk" 1 va00 8000
 attr 16
 clac 0
-emit 2 0.6
 mvto 9267 2239
+emit 2 0.6
 
 ** Central
 new: simp 1 1 10853 "blnk" 1 va00 8000
 attr 16
 clac 0
-emit 2 0.6
 mvto 9772 2214
-
+emit 2 0.6
 
 ** Rightmost
 new: simp 1 1 10853 "blnk" 1 va00 8000
 attr 16
 clac 0
-emit 2 0.6
 mvto 10380 2222
+emit 2 0.6
 
 ***LIGHT
 ** leftmost
 new: simp 1 1 10853 "blnk" 1 va00 8000
 attr 16
 clac 0
-emit 1 1.0
 mvto 9267 2239
+emit 1 1.0
+
 
 ** Central
 new: simp 1 1 10853 "blnk" 1 va00 8000
 attr 16
 clac 0
-emit 1 1.0
 mvto 9772 2214
+emit 1 1.0
 
 
 ** Rightmost
 new: simp 1 1 10853 "blnk" 1 va00 8000
 attr 16
 clac 0
-emit 1 1.0
 mvto 10380 2222
+emit 1 1.0
 
 *sharmflower install
 inst
