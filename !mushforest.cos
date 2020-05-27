@@ -1,6 +1,10 @@
 *map size check
-doif mapw < 50000 or maph < 50000
-	mapd 50000 50000
+doif mapw < 50000
+  mapd 50000 maph
+endi
+
+doif maph < 50000
+  mapd mapw 50000
 endi
 
 * Addon file: deletes existing metarooms at the same place, same background name
