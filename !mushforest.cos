@@ -1,13 +1,3 @@
-**CAOS2PRAY
-*# Pray-File "mushroomforest.agents"
-*# DS-Name "Mushroom Forest"
-*# attach violet-laccaria-478055sml.bmp
-*# desc = "A peaceful forest."
-*# Agent Animation File = "blnk.c16"
-*# Agent Animation String = "0"
-*# Agent Sprite First Image = 0
-*# Agent Animation Gallery = "blnk"
-
 *map size check
 doif mapw < 50000 or maph < 50000
 	mapd 50000 50000
