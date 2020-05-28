@@ -1,0 +1,33 @@
+"en-GB"
+
+
+group DSAG "Mushroom Forest"
+
+"Dependency 1" "violet-laccaria-478055sml.blk"
+"Dependency 2" "fav_place_an30.c16"
+"Dependency 3" "Sharmflower.c16"
+"Dependency 4" "blnk.c16"
+"Agent Animation Gallery" "blnk"
+"Agent Description" "Malkin's First Metaroom, a peaceful forest."
+"Agent Animation File" "blnk.c16"
+"Agent Animation Gallery" "blnk"
+
+"Script Count" 3
+"Script 1" @ "!mushforest.cos"
+"Script 2" @ "critter.cos"
+"Script 3" @ "sharmflower.cos"
+
+"Agent Type" 0
+"Dependency Count" 4
+"Dependency Category 1" 6
+"Dependency Category 2" 2
+"Dependency Category 3" 2
+"Dependency Category 4" 2
+"Agent Sprite First Image" 1
+
+
+
+inline FILE "Sharmflower.c16" "Sharmflower.c16"
+inline FILE "fav_place_an30.c16" "fav_place_an30.c16"
+inline FILE "violet-laccaria-478055sml.blk" "violet-laccaria-478055sml.blk"
+
