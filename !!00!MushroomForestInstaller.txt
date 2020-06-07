@@ -8,6 +8,7 @@ group DSAG "Mushroom Forest"
 "Dependency 3" "Sharmflower.c16"
 "Dependency 4" "blnk.c16"
 "Dependency 5" "pinecone.c16"
+"Dependency 6" "albiansnail.c16"
 "Agent Animation Gallery" "blnk"
 "Agent Description" "Malkin's First Metaroom, a peaceful forest."
 "Agent Animation File" "blnk.c16"
@@ -26,6 +27,7 @@ group DSAG "Mushroom Forest"
 "Dependency Category 3" 2
 "Dependency Category 4" 2
 "Dependency Category 5" 2
+"Dependency Category 6" 2
 "Agent Sprite First Image" 1
 
 
@@ -34,4 +36,5 @@ inline FILE "Sharmflower.c16" "Sharmflower.c16"
 inline FILE "fav_place_an30.c16" "fav_place_an30.c16"
 inline FILE "violet-laccaria-478055sml.blk" "violet-laccaria-478055sml.blk"
 inline FILE "pinecone.c16" "pinecone.c16"
+inline FILE "albiansnail.c16" "albiansnail.c16"
 
