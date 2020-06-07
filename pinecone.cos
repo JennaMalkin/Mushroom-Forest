@@ -1,0 +1,100 @@
+inst
+new: simp 2 21 1000 "pinecone" 1 0 1000
+attr 195
+bhvr 11
+elas 0
+accg 3
+aero 2
+fric 100
+perm 100
+mvsf 10275 2170
+tick 400
+
+
+scrp 2 21 1000 1
+	stim writ from 97 1
+	mesg writ ownr 1000
+endm
+
+scrp 2 21 1000 2
+	stim writ from 97 1
+	mesg writ ownr 1000
+endm
+
+scrp 2 21 1000 3
+	stim writ from 97 1
+	mesg writ ownr 1000
+endm
+
+scrp 2 21 1000 6
+	doif wall = down
+		sndc "dr64"
+	endi
+endm
+
+scrp 2 21 1000 9
+	mesg writ ownr 1000
+endm
+
+scrp 2 21 1000 1000
+	lock
+	rnge 300
+	setv va66 0
+	esee 2 3 1000
+		addv va66 1
+	next
+	targ ownr
+	doif va66 le 4
+		setv va00 posl
+		setv va01 posb
+		inst
+		new: simp 2 3 1000 "pinecone" 1 1 4900
+		attr 195
+		bhvr 48
+		elas 30
+		fric 50
+		accg 3
+		doif tmvt va00 va01 = 1
+			mvto va00 va01
+		else
+			mvsf va00 va01
+		endi
+		velo rand -10 10 rand -15 -20
+		tick rand 6000 12000
+		emit 7 0.3
+	endi
+endm
+
+scrp 2 3 1000 9
+	lock
+	kill ownr
+endm
+
+scrp 2 3 1000 12
+	lock
+	sndc "chwp"
+	stim writ from 77 1
+	kill ownr
+endm
+
+scrp 2 3 1000 6
+	doif wall = down
+		sndc "smit"
+	endi
+endm
+
+
+
+rscr
+enum 2 21 1000
+	kill targ
+next
+scrx 2 21 1000 1
+scrx 2 21 1000 2
+scrx 2 21 1000 3
+scrx 2 21 1000 6
+scrx 2 21 1000 9
+scrx 2 21 1000 1000
+scrx 2 3 1000 12
+scrx 2 3 1000 9
+scrx 2 3 1000 6
