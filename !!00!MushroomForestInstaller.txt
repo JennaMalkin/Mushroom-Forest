@@ -21,7 +21,7 @@ group DSAG "Mushroom Forest"
 "Script 4" @ "pinecone.cos"
 
 "Agent Type" 0
-"Dependency Count" 4
+"Dependency Count" 6
 "Dependency Category 1" 6
 "Dependency Category 2" 2
 "Dependency Category 3" 2
