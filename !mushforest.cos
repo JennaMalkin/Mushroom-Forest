@@ -1,16 +1,10 @@
-**CAOS2PRAY
-*# Pray-File "mushroomforest.agents"
-*# DS-Name "Mushroom Forest"
-*# attach violet-laccaria-478055sml.bmp
-*# desc = "A peaceful forest."
-*# Agent Animation File = "blnk.c16"
-*# Agent Animation String = "0"
-*# Agent Sprite First Image = 0
-*# Agent Animation Gallery = "blnk"
-
 *map size check
-doif mapw < 50000 or maph < 50000
-	mapd 50000 50000
+doif mapw < 50000
+  mapd 50000 maph
+endi
+
+doif maph < 50000
+  mapd mapw 50000
 endi
 
 * Addon file: deletes existing metarooms at the same place, same background name
@@ -510,7 +504,7 @@ delg "mapeditortmp_54"
 
 ***set va00 to 1 to make emitters visible
 
-setv va00 1
+setv va00 0
 ***HEAT
 ** leftmost
 new: simp 1 1 10853 "blnk" 1 va00 8000
@@ -767,11 +761,8 @@ endm
 
 
 
-*plant remove
+*removal
 rscr
-enum 1 1 10853
-	kill targ
-next
 
 *Door removal script
 enum 2 2 20855
