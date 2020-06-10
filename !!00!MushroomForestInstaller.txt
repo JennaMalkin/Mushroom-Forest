@@ -15,11 +15,12 @@ group DSAG "Mushroom Forest"
 "Agent Animation File" "blnk.c16"
 "Agent Animation Gallery" "blnk"
 
-"Script Count" 4
+"Script Count" 5
 "Script 1" @ "!mushforest.cos"
 "Script 2" @ "critter.cos"
 "Script 3" @ "sharmflower.cos"
 "Script 4" @ "pinecone.cos"
+"Script 5" @ "kaepillashroom.cos"
 
 "Agent Type" 0
 "Dependency Count" 7
