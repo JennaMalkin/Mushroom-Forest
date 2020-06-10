@@ -1,0 +1,180 @@
+**
+** Plant script
+**
+
+* Install script
+new: simp 2 4 36467 "mushroomplant" 2 0 1100
+* The construction script automatically gets called after creation (= now)
+* The plant has been created now, move it into the correct place
+mvsf 9096 2170
+
+
+**
+** Plant scripts
+**
+
+** Plant construction script
+scrp 2 4 36467 10
+* Call the construction script instantly
+	inst
+* Attr: mouseable 2 + collide 64 + physics 128 = 194
+	attr 194
+* Bhvr: push, pull, hit
+	bhvr 11
+* Set physics attributes
+	accg 2
+	aero 3
+* Set collision attributes
+	perm 100
+	fric 100
+	elas 0
+* emit flower smell (optional, if it is a flower)
+*	emit 9 0.3
+* set the timer script to a random tick (timer script gets called to make fruit)
+	tick rand 400 800
+endm
+
+** Plant Activate 1 (push) script (play with plant)
+
+scrp 2 4 36467 1
+* Stim the pushing creature (from) with "played with good plant"
+	stim writ from 84 1
+	mesg writ ownr 1000
+** Reset the timer script
+	mesg writ ownr 9
+endm
+
+** Plant Activate 2 (pull) script (play with plant)
+
+scrp 2 4 36467 2
+* Stim the pushing creature (from) with "played with good plant"
+	stim writ from 84 1
+	mesg writ ownr 1000
+** Reset the timer script
+	mesg writ ownr 9
+endm
+
+** Plant hit script (play with plant)
+
+scrp 2 4 36467 3
+* Stim the pushing creature (from) with "played with good plant"
+	stim writ from 84 1
+	mesg writ ownr 1000
+** Reset the timer script
+	mesg writ ownr 9
+endm
+
+scrp 2 4 36467 1000
+* Save the coordinates of the plant into variables so the fruit can be created at the plant
+	setv va02 posl
+	setv va03 post
+* Create a new food object
+	new: simp 2 11 36467 "mushroomplant" 1 2 1200
+* Check if the food object can be created in this spot
+	doif tmvt va02 va03 eq 1
+* If yes, create it
+		mvto va02 va03
+* also YEET the food away from the plant
+		velo rand -5 5 -5
+	else
+* If not, kill it
+		kill targ
+	endi
+	targ ownr
+	pose 1
+	wait 20
+	pose 0
+endm
+
+** Plant Timer script
+
+scrp 2 4 36467 9
+* set the tick to a random value again
+	tick rand 400 800
+* Create fruit
+* Save the coordinates of the plant into variables so the fruit can be created at the plant
+	setv va02 posr
+	setv va03 post
+* Create a new food object
+	new: simp 2 11 36467 "mushroomplant" 1 2 1200
+* Check if the food object can be created in this spot
+	doif tmvt va02 va03 eq 1
+* If yes, create it
+		mvto va02 va03
+* also YEET the food away from the plant
+		velo rand -5 5 -5
+	else
+* If not, kill it
+		kill targ
+	endi
+	targ ownr
+	pose 1
+	wait 20
+	pose 0
+endm
+
+** Food creation script
+
+scrp 2 11 36467 10
+* Attr: mouseable 2 + collide 64 + physics 128 = 194
+	attr 194
+* Bhvr: eat 16 + pick up 32
+	bhvr 48
+* Set physics attributes
+	accg 2
+	aero 3
+* Set collision attributes
+	perm 60
+	fric 60
+	elas 30
+* Emit food smell
+	emit 8 0.3
+* Set a tick after which the food will decay
+	tick 3000
+endm
+
+** Food eat script 
+
+scrp 2 11 36467 12
+	sndc "chwp"
+	stim writ from 79 1
+	kill ownr
+endm
+
+** Food Timer script
+
+scrp 2 11 36467 9
+* If around for too long, kill it
+* First check if it's not being carried
+	doif carr eq null
+* Go to the dying subroutine
+		gsub detritus
+	else
+* It's being carried. Make the tick smaller now since it's quite old already and should decay some while after being dropped.
+		tick 200
+	endi
+
+* This is the detritus subroutine
+	subr detritus
+* This could have been "create detritus" but I'm lazy and I'll just kill the food.
+		kill ownr
+	retn
+endm
+
+rscr
+enum 2 4 36467
+	kill targ
+next
+enum 2 11 36467
+	kill targ
+next
+
+scrx 2 4 36467 10
+scrx 2 4 36467 1
+scrx 2 4 36467 2
+scrx 2 4 36467 3
+scrx 2 4 36467 1000
+scrx 2 4 36467 9
+scrx 2 11 36467 10
+scrx 2 11 36467 12
+scrx 2 11 36467 9

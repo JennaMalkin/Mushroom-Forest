@@ -1,7 +1,7 @@
 inst
 reps 15
 	new: simp 2 4 1058 "sharmflower" 6 0 140
-	attr 192
+	attr 199
 	bhvr 11
 	elas 0
 *OV00 - Plant state: switches between growing UP and growing DOWN
@@ -21,12 +21,14 @@ scrp 2 4 1058 1
 	targ from
 	stim writ from 84 1
 	targ ownr
+	mesg writ ownr 1000
 endm
 
 *Pull script
 scrp 2 4 1058 2
 	stim writ from 84 1
 	targ ownr
+	mesg writ ownr 1000
 endm
 
 *timer script
@@ -71,6 +73,55 @@ scrp 2 4 1058 3
 		pose va00
 	endi
 endm
+
+scrp 2 4 1058 1000
+	lock
+	rnge 30
+	setv va66 0
+	esee 2 3 1000
+		addv va66 1
+	next
+	targ ownr
+	doif va66 le 4
+		setv va00 posl
+		setv va01 post
+		inst
+		new: simp 2 8 1000 "berrybush" 1 4 4900
+		attr 195
+		bhvr 48
+		elas 30
+		fric 50
+		accg 3
+		doif tmvt va00 va01 = 1
+			mvto va00 va01
+		else
+			mvsf va00 va01
+		endi
+		velo rand -10 10 rand -15 -20
+		tick rand 6000 12000
+		emit 6 0.3
+	endi
+endm
+
+scrp 2 8 1000 9
+	lock
+	kill ownr
+endm
+
+scrp 2 8 1000 12
+	lock
+	sndc "chwp"
+	stim writ from 78 1
+	chem 99 0.1
+	kill ownr
+endm
+
+scrp 2 8 1000 6
+	doif wall = down
+		sndc "smit"
+	endi
+endm
+
 
 *REMOVE ME
 rscr
