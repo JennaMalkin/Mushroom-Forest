@@ -1,10 +1,10 @@
 *map size check
 doif mapw < 50000
-  mapd 50000 maph
+	mapd 50000 maph
 endi
 
 doif maph < 50000
-  mapd mapw 50000
+	mapd mapw 50000
 endi
 
 * Addon file: deletes existing metarooms at the same place, same background name
@@ -502,6 +502,29 @@ delg "mapeditortmp_52"
 delg "mapeditortmp_53"
 delg "mapeditortmp_54"
 
+
+*Favorite Place
+doif gnam = "Creatures 3"
+	new: simp 1 1 10853 "fav_place_mushfor" 1 0 1
+	attr 272
+	mvto 9669 2085
+	setv va00 posx
+	setv va01 posy
+	setv ov00 gmap va00 va01
+
+	new: simp 1 2 10853 "fav_place_mushfor" 2 1 8505
+	attr 52
+	clac 0
+	mvto 9669 2085
+	flto 445 47
+	tick 1
+elif gnam = "Docking Station"
+	new: simp 1 3 10853 "fav_place_mushfor" 1 0 1
+	attr 272
+	mvto 9669 2085
+	tick 10
+endi
+
 ***set va00 to 1 to make emitters visible
 
 setv va00 0
@@ -689,7 +712,7 @@ setv ov00 0
 mvsf 810 8814
 *Get the room id of the xcoord ycoord of the door, then set it in a temporary variable va00
 setv va00 grap posx posy
-*We made our first door! On to the second one, which is the partnering door of the first one. The second one can be found at the workshop, at the bottom left.
+*We made our first door! On to the second one, which is the partnering door of the first one. 
 new: simp 2 2 20855 "ds portals" 1 11 550
 attr 4
 bhvr 1
@@ -759,11 +782,7 @@ scrp 2 2 20855 1
 	unlk
 endm
 
-
-
-*removal
 rscr
-
 *Door removal script
 enum 2 2 20855
 	kill targ
