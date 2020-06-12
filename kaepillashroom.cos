@@ -66,7 +66,7 @@ endm
 
 scrp 2 4 36467 1000
 * Save the coordinates of the plant into variables so the fruit can be created at the plant
-	setv va02 posl
+	setv va02 posr
 	setv va03 post
 * Create a new food object
 	new: simp 2 11 36467 "mushroomplant" 1 2 1200
