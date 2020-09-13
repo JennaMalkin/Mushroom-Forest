@@ -11,10 +11,11 @@ group DSAG "Mushroom Forest"
 "Dependency 6" "albiansnail.c16"
 "Dependency 7" "mushroomplant.c16"
 "Dependency 8" "berrybush.c16"
-"Agent Animation Gallery" "blnk"
+
+"Agent Animation Gallery" "mushroomplant"
 "Agent Description" "Malkin's First Metaroom, a peaceful forest."
-"Agent Animation File" "blnk.c16"
-"Agent Animation Gallery" "blnk"
+"Agent Animation File" "mushroomplant.c16"
+"Agent Animation Gallery" "mushroomplant"
 
 "Script Count" 5
 "Script 1" @ "!mushforest.cos"
