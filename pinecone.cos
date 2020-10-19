@@ -1,5 +1,5 @@
 inst
-new: simp 2 21 1000 "pinecone" 1 0 1000
+new: simp 2 21 10859 "pinecone" 1 0 1000
 attr 195
 bhvr 11
 elas 0
@@ -11,36 +11,36 @@ mvsf 10275 2170
 tick 400
 
 
-scrp 2 21 1000 1
+scrp 2 21 10859 1
 	stim writ from 97 1
 	mesg writ ownr 1000
 endm
 
-scrp 2 21 1000 2
+scrp 2 21 10859 2
 	stim writ from 97 1
 	mesg writ ownr 1000
 endm
 
-scrp 2 21 1000 3
+scrp 2 21 10859 3
 	stim writ from 97 1
 	mesg writ ownr 1000
 endm
 
-scrp 2 21 1000 6
+scrp 2 21 10859 6
 	doif wall = down
 		sndc "dr64"
 	endi
 endm
 
-scrp 2 21 1000 9
+scrp 2 21 10859 9
 	mesg writ ownr 1000
 endm
 
-scrp 2 21 1000 1000
+scrp 2 21 10859 1000
 	lock
 	rnge 300
 	setv va66 0
-	esee 2 3 1000
+	esee 2 3 10859
 		addv va66 1
 	next
 	targ ownr
@@ -48,7 +48,7 @@ scrp 2 21 1000 1000
 		setv va00 posl
 		setv va01 posb
 		inst
-		new: simp 2 3 1000 "pinecone" 1 1 4900
+		new: simp 2 3 10859 "pinecone" 1 1 4900
 		attr 195
 		bhvr 48
 		elas 30
@@ -65,19 +65,19 @@ scrp 2 21 1000 1000
 	endi
 endm
 
-scrp 2 3 1000 9
+scrp 2 3 10859 9
 	lock
 	kill ownr
 endm
 
-scrp 2 3 1000 12
+scrp 2 3 10859 12
 	lock
 	sndc "chwp"
 	stim writ from 77 1
 	kill ownr
 endm
 
-scrp 2 3 1000 6
+scrp 2 3 10859 6
 	doif wall = down
 		sndc "smit"
 	endi
@@ -86,15 +86,15 @@ endm
 
 
 rscr
-enum 2 21 1000
+enum 2 21 10859
 	kill targ
 next
-scrx 2 21 1000 1
-scrx 2 21 1000 2
-scrx 2 21 1000 3
-scrx 2 21 1000 6
-scrx 2 21 1000 9
-scrx 2 21 1000 1000
-scrx 2 3 1000 12
-scrx 2 3 1000 9
-scrx 2 3 1000 6
+scrx 2 21 10859 1
+scrx 2 21 10859 2
+scrx 2 21 10859 3
+scrx 2 21 10859 6
+scrx 2 21 10859 9
+scrx 2 21 10859 1000
+scrx 2 3 10859 12
+scrx 2 3 10859 9
+scrx 2 3 10859 6
