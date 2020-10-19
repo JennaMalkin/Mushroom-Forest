@@ -3,7 +3,7 @@
 **
 
 * Install script
-new: simp 2 4 36467 "mushroomplant" 2 0 1100
+new: simp 2 4 10853 "mushroomplant" 2 0 1100
 * The construction script automatically gets called after creation (= now)
 * The plant has been created now, move it into the correct place
 mvsf 9096 2170
@@ -14,7 +14,7 @@ mvsf 9096 2170
 **
 
 ** Plant construction script
-scrp 2 4 36467 10
+scrp 2 4 10853 10
 * Call the construction script instantly
 	inst
 * Attr: mouseable 2 + collide 64 + physics 128 = 194
@@ -36,7 +36,7 @@ endm
 
 ** Plant Activate 1 (push) script (play with plant)
 
-scrp 2 4 36467 1
+scrp 2 4 10853 1
 * Stim the pushing creature (from) with "played with good plant"
 	stim writ from 84 1
 	mesg writ ownr 1000
@@ -46,7 +46,7 @@ endm
 
 ** Plant Activate 2 (pull) script (play with plant)
 
-scrp 2 4 36467 2
+scrp 2 4 10853 2
 * Stim the pushing creature (from) with "played with good plant"
 	stim writ from 84 1
 	mesg writ ownr 1000
@@ -56,7 +56,7 @@ endm
 
 ** Plant hit script (play with plant)
 
-scrp 2 4 36467 3
+scrp 2 4 10853 3
 * Stim the pushing creature (from) with "played with good plant"
 	stim writ from 84 1
 	mesg writ ownr 1000
@@ -64,12 +64,12 @@ scrp 2 4 36467 3
 	mesg writ ownr 9
 endm
 
-scrp 2 4 36467 1000
+scrp 2 4 10853 1000
 * Save the coordinates of the plant into variables so the fruit can be created at the plant
 	setv va02 posr
 	setv va03 post
 * Create a new food object
-	new: simp 2 11 36467 "mushroomplant" 1 2 1200
+	new: simp 2 11 10853 "mushroomplant" 1 2 1200
 * Check if the food object can be created in this spot
 	doif tmvt va02 va03 eq 1
 * If yes, create it
@@ -88,7 +88,7 @@ endm
 
 ** Plant Timer script
 
-scrp 2 4 36467 9
+scrp 2 4 10853 9
 * set the tick to a random value again
 	tick rand 400 800
 * Create fruit
@@ -96,7 +96,7 @@ scrp 2 4 36467 9
 	setv va02 posr
 	setv va03 post
 * Create a new food object
-	new: simp 2 11 36467 "mushroomplant" 1 2 1200
+	new: simp 2 11 10853 "mushroomplant" 1 2 1200
 * Check if the food object can be created in this spot
 	doif tmvt va02 va03 eq 1
 * If yes, create it
@@ -115,7 +115,7 @@ endm
 
 ** Food creation script
 
-scrp 2 11 36467 10
+scrp 2 11 10853 10
 * Attr: mouseable 2 + collide 64 + physics 128 = 194
 	attr 194
 * Bhvr: eat 16 + pick up 32
@@ -135,7 +135,7 @@ endm
 
 ** Food eat script 
 
-scrp 2 11 36467 12
+scrp 2 11 10853 12
 	sndc "chwp"
 	stim writ from 79 1
 	kill ownr
@@ -143,7 +143,7 @@ endm
 
 ** Food Timer script
 
-scrp 2 11 36467 9
+scrp 2 11 10853 9
 * If around for too long, kill it
 * First check if it's not being carried
 	doif carr eq null
@@ -162,19 +162,19 @@ scrp 2 11 36467 9
 endm
 
 rscr
-enum 2 4 36467
+enum 2 4 10853
 	kill targ
 next
-enum 2 11 36467
+enum 2 11 10853
 	kill targ
 next
 
-scrx 2 4 36467 10
-scrx 2 4 36467 1
-scrx 2 4 36467 2
-scrx 2 4 36467 3
-scrx 2 4 36467 1000
-scrx 2 4 36467 9
-scrx 2 11 36467 10
-scrx 2 11 36467 12
-scrx 2 11 36467 9
+scrx 2 4 10853 10
+scrx 2 4 10853 1
+scrx 2 4 10853 2
+scrx 2 4 10853 3
+scrx 2 4 10853 1000
+scrx 2 4 10853 9
+scrx 2 11 10853 10
+scrx 2 11 10853 12
+scrx 2 11 10853 9
