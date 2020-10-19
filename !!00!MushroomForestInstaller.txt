@@ -13,6 +13,7 @@ group DSAG "Mushroom Forest"
 "Dependency 8" "berrybush.c16"
 
 "Agent Animation Gallery" "mushroomplant"
+"Agent Animation String" "0"
 "Agent Description" "Malkin's First Metaroom, a peaceful forest."
 "Agent Animation File" "mushroomplant.c16"
 "Agent Animation Gallery" "mushroomplant"
