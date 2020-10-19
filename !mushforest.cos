@@ -701,7 +701,7 @@ mvto 9772 2214
 inst
 *Make the first door! This one is going to be the leftmost door in the top left part of the norn meso. This door will link to the agent injector.
 *Create a simple object that classifies as a door. For convenience's sake, we will use the image of the existing DS teleporters, which are called "ds portals.c16" in the image folder. I will just be using 1 sprite, the 11th, since that one looks cute. You could totally use your own sprite or even add animations in the push script, just be sure to ajdust the image_count and first_image in the new: simp script. We want the door's plane to be behind the creature, so we'll set it to 550.
-new: simp 2 2 20855 "ds portals" 1 11 550
+new: simp 2 2 10853 "ds portals" 1 11 550
 *Give the door the correct attribute flags, we'll make them clickable by the pointer, which means a total attribute value of 4.
 attr 4
 *Now give the door the correct behaviour: creatures can activate 1 (push) it, which makes for a total behaviour value of 1.
@@ -713,7 +713,7 @@ mvsf 810 8814
 *Get the room id of the xcoord ycoord of the door, then set it in a temporary variable va00
 setv va00 grap posx posy
 *We made our first door! On to the second one, which is the partnering door of the first one. 
-new: simp 2 2 20855 "ds portals" 1 11 550
+new: simp 2 2 10853 "ds portals" 1 11 550
 attr 4
 bhvr 1
 setv ov00 0
@@ -724,7 +724,7 @@ link va00 va01 100
 
 *Door event scripts
 *Create an event script for the doors that activates when you send a Push message to it. Don't forget to close your script block with endm at the end.
-scrp 2 2 20855 1
+scrp 2 2 10853 1
 *We want this script to be locked, so it can't be interrupted by other norns when someone activated it.
 	lock
 	stim writ from 75 1
@@ -732,7 +732,7 @@ scrp 2 2 20855 1
 *We will save the door group (stored in ov00)
 	setv va00 ov00
 	seta va01 targ
-	enum 2 2 20855
+	enum 2 2 10853
 *You're now inside of the enumeration loop. Make sure that the door you're currently targeting isn't the door being activated.
 		doif targ ne va01
 *Check if this door belongs to the same group as the original door
@@ -784,8 +784,8 @@ endm
 
 rscr
 *Door removal script
-enum 2 2 20855
+enum 2 2 10853
 	kill targ
 next
 *Remove the push script from the scriptorium
-scrx 2 2 20855 1
+scrx 2 2 10853 1
