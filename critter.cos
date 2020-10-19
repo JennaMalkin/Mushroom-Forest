@@ -1,6 +1,6 @@
 
 inst
-new: simp 1 17 1000 "blnk" 2 0 0
+new: simp 1 17 10853 "blnk" 2 0 0
 accg 0
 perm 0
 tick 400
@@ -11,7 +11,7 @@ mvto 9818 2180
 
 reps 8
 	inst
-	new: simp 2 15 1000 "albiansnail" 16 0 3500
+	new: simp 2 15 10853 "albiansnail" 16 0 3500
 	attr 194
 	bhvr 59
 	elas 99
@@ -25,7 +25,7 @@ reps 8
 	endi
 repe
 
-scrp 1 17 1000 9
+scrp 1 17 10853 9
 	inst
 	rnge 800
 	esee 2 16 6
@@ -49,7 +49,7 @@ scrp 1 17 1000 9
 endm
 
 
-scrp 2 15 1000 9
+scrp 2 15 10853 9
 	addv ov99 1
 	doif ov99 eq rand 500 1500
 		kill ownr
@@ -73,7 +73,7 @@ endm
 **********************
 ***Collision Script***
 **********************
-scrp 2 15 1000 6
+scrp 2 15 10853 6
 	doif wall eq rght
 		velo -6 -2
 		setv ov00 0
@@ -86,7 +86,7 @@ endm
 **********************
 ***   Push Script  ***
 **********************
-scrp 2 15 1000 1
+scrp 2 15 10853 1
 	targ from
 	stim writ targ 85 1
 endm
@@ -94,7 +94,7 @@ endm
 **********************
 ***   Pull Script  ***
 **********************
-scrp 2 15 1000 2
+scrp 2 15 10853 2
 	targ from
 	stim writ targ 85 1
 endm
@@ -102,7 +102,7 @@ endm
 **********************
 ***   Hit Script   ***
 **********************
-scrp 2 15 1000 3
+scrp 2 15 10853 3
 	inst
 	snde "spnk"
 	doif from <> null
@@ -119,7 +119,7 @@ endm
 **********************
 ***   Eat Script  ***
 **********************
-scrp 2 15 1000 12
+scrp 2 15 10853 12
 	targ from
 	stim writ targ 80 1
 	kill ownr
@@ -127,12 +127,12 @@ endm
 
 
 rscr
-enum 2 15 1000
+enum 2 15 10853
 	kill targ
 next
-scrx 2 15 1000 9
-scrx 2 15 1000 6
-scrx 2 15 1000 1
-scrx 2 15 1000 2
-scrx 2 15 1000 3
-scrx 2 15 1000 12
+scrx 2 15 10853 9
+scrx 2 15 10853 6
+scrx 2 15 10853 1
+scrx 2 15 10853 2
+scrx 2 15 10853 3
+scrx 2 15 10853 12
