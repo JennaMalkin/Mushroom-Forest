@@ -1,6 +1,6 @@
 inst
 reps 15
-	new: simp 2 4 1058 "sharmflower" 6 0 140
+	new: simp 2 4 10861 "sharmflower" 6 0 140
 	attr 199
 	bhvr 11
 	elas 0
@@ -17,7 +17,7 @@ repe
 
 
 *push script
-scrp 2 4 1058 1
+scrp 2 4 10861 1
 	targ from
 	stim writ from 84 1
 	targ ownr
@@ -25,14 +25,14 @@ scrp 2 4 1058 1
 endm
 
 *Pull script
-scrp 2 4 1058 2
+scrp 2 4 10861 2
 	stim writ from 84 1
 	targ ownr
 	mesg writ ownr 1000
 endm
 
 *timer script
-scrp 2 4 1058 9
+scrp 2 4 10861 9
 *Grow UP
 	doif ov00 eq 0
 		doif pose lt 5
@@ -62,7 +62,7 @@ scrp 2 4 1058 9
 endm
 
 *Hit script
-scrp 2 4 1058 3
+scrp 2 4 10861 3
 	targ from
 	stim writ from 84 1
 	targ ownr
@@ -74,7 +74,7 @@ scrp 2 4 1058 3
 	endi
 endm
 
-scrp 2 4 1058 1000
+scrp 2 4 10861 1000
 	lock
 	rnge 30
 	setv va66 0
@@ -86,7 +86,7 @@ scrp 2 4 1058 1000
 		setv va00 posl
 		setv va01 post
 		inst
-		new: simp 2 8 1000 "berrybush" 1 4 4900
+		new: simp 2 8 10861 "berrybush" 1 4 4900
 		attr 195
 		bhvr 48
 		elas 30
@@ -103,12 +103,12 @@ scrp 2 4 1058 1000
 	endi
 endm
 
-scrp 2 8 1000 9
+scrp 2 8 10861 9
 	lock
 	kill ownr
 endm
 
-scrp 2 8 1000 12
+scrp 2 8 10861 12
 	lock
 	sndc "chwp"
 	stim writ from 78 1
@@ -116,7 +116,7 @@ scrp 2 8 1000 12
 	kill ownr
 endm
 
-scrp 2 8 1000 6
+scrp 2 8 10861 6
 	doif wall = down
 		sndc "smit"
 	endi
@@ -125,10 +125,10 @@ endm
 
 *REMOVE ME
 rscr
-enum 2 4 1058
+enum 2 4 10861
 	kill targ
 next
-scrx 2 4 1058 1
-scrx 2 4 1058 2
-scrx 2 4 1058 3
-scrx 2 4 1058 9
+scrx 2 4 10861 1
+scrx 2 4 10861 2
+scrx 2 4 10861 3
+scrx 2 4 10861 9
