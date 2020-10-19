@@ -32,8 +32,8 @@ scrp 1 17 10853 9
 		addv va00 1
 	next
 *if less than or equal to 3, and total of critters under 15, make one more.
-	doif va00 <= 3 and totl 2 15 1000 < 15
-		new: simp 2 15 1000 "albiansnail" 16 0 3500
+	doif va00 <= 3 and totl 2 15 10853 < 15
+		new: simp 2 15 10853 "albiansnail" 16 0 3500
 		attr 194
 		bhvr 59
 		elas 99
