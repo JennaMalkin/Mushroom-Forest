@@ -26,7 +26,7 @@ group DSAG "Mushroom Forest"
 "Script 5" @ "kaepillashroom.cos"
 
 "Agent Type" 0
-"Dependency Count" 7
+"Dependency Count" 8
 "Dependency Category 1" 6
 "Dependency Category 2" 2
 "Dependency Category 3" 2
